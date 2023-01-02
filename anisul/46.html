@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keypress listener</title>
+    <style>
+               
+               .button{
+                margin: 45px 50px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-weight: bold;
+                font-size: 36px;
+                padding: 50px;
+                background-color: cornflowerblue;
+                border: none;
+                color:white;
+               }
+               
+               .anim{
+                    box-shadow: 2px 15px 12px 10px tomato;
+                    opacity: 0.5;
+                }
+    </style>
+</head>
+<body>
+    
+                    <button class="button a">a</button>
+                    <button class="button b">b</button>
+                    <button class="button c">c</button>
+                    <button class="button d">d</button>
+                    
+
+    <script>
+              var length= document.querySelectorAll("button").length;
+        for(var i=0;i<length;i++)
+        {
+            document.querySelectorAll("button")[i].addEventListener("click",function()
+                        {
+                            var text=this.innerHTML;
+                            playlist(text);
+                            Animaton(text);
+                         
+                        })
+        }
+
+        function playlist(text)
+        {
+            switch(text){
+                                            case "a":
+                                            var audio = new Audio('Kacher_Janala___Arman_Alif___Composed_By_Sahriar_Rafat___Official_Music_Video_20.m4a');
+                                        audio.play();
+                                        break;
+                                            case "b":
+                                            var audio = new Audio('Karar_oi_louho_kobat_....by_kazi_nazrul_islam.m4a');
+                                             audio.play();
+                                             break;
+                                            case "c":
+                                            var audio = new Audio('Karone_Okarone___Minar_Rahman___Official_Music_Video___Eagle_Music.m4a');
+                                             audio.play();
+                                             break;
+                                            case "d":
+                                            var audio = new Audio('videosd1621904056494.mp4');
+                                             audio.play();
+                                      }
+        }
+        function Animaton(text)
+        {
+            document.querySelector("."+text).classList.add("anim");
+
+
+            setTimeout(function()
+            {
+                document.querySelector("."+text).classList.remove("anim");
+            },10000);
+        }
+
+        document.addEventListener("keypress",function(event)
+        {
+            var text=event.key;
+            playlist(text);
+           Animaton(text);
+                         
+
+        });
+      
+                       
+    </script>
+</body>
+</html>

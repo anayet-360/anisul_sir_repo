@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>how to add and remove animation</title>
+    <style>
+                    .anim{
+                                box-shadow: 0 15px 18px 0 tomato;
+                                opacity: 0.5;
+                    }
+                    .button{
+                        background-color: aqua;
+                        color:black;
+                        padding: 45px;
+                        margin: 12px 35px;
+                        font-size: 26px;
+                        border: none;
+                        border-radius: 9px;
+                    }
+    </style>
+</head>
+<body>
+                <button class="button a">a</button>
+                <button class="button b">b</button>
+                <button class="button c">c</button>
+
+
+    <script>
+                        var length= document.querySelectorAll("button").length;
+                        for(var i=0;i<=length;i++)
+                        {
+                            document.querySelectorAll("button")[i].addEventListener("click",function()
+                        {
+                            var text=this.innerHTML;
+                            playlist(text);
+                            noman(text);
+                            
+                            
+                        })
+                        }
+                       function playlist(text)
+                       {
+                        switch(text)
+                            {
+                                case "a":
+                                var audio = new Audio('Karone_Okarone___Minar_Rahman___Official_Music_Video___Eagle_Music.m4a');
+                                audio.play();
+                                case "b":
+                                var audio = new Audio('Kacher_Janala___Arman_Alif___Composed_By_Sahriar_Rafat___Official_Music_Video_20.m4a');
+                                audio.play();
+                                case "c":
+                                var audio = new Audio('Karar_oi_louho_kobat_....by_kazi_nazrul_islam.m4a');
+                                audio.play();
+                            }
+                       }
+
+                       function noman(text)
+                       {
+                        var hi=document.querySelector("."+text);
+                        hi.classList.add("anim");
+                        setTimeout(function()
+                    {
+                        hi.classList.remove("anim")
+                    },1000)
+                        
+                       }
+                        
+                        
+    </script>
+</body>
+</html>
